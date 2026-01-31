@@ -22,7 +22,7 @@ const [editAssigned, setEditAssigned] = useState("");
 
   // ================= LOAD TICKETS =================
   useEffect(() => {
-    fetch(`http://localhost:5000/tickets/project/${projectId}`)
+    fetch(`https://project-management-app-backend-awuc.onrender.com/tickets/project/${projectId}`)
       .then(res => res.json())
       .then(data => setTickets(data));
   }, []);
@@ -31,7 +31,7 @@ const [editAssigned, setEditAssigned] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/tickets", {
+    const res = await fetch("https://project-management-app-backend-awuc.onrender.com/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -53,7 +53,7 @@ const [editAssigned, setEditAssigned] = useState("");
 
   // ================= DELETE TICKET =================
   const deleteTicket = async (id) => {
-    await fetch(`http://localhost:5000/tickets/${id}`, {
+    await fetch(`https://project-management-app-backend-awuc.onrender.com/tickets/${id}`, {
       method: "DELETE"
     });
 
@@ -76,7 +76,7 @@ const saveEdit = async (id) => {
     return;
   }
 
-  const res = await fetch(`http://localhost:5000/tickets/${id}`, {
+  const res = await fetch(`https://project-management-app-backend-awuc.onrender.com/tickets/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -103,7 +103,7 @@ const saveEdit = async (id) => {
 
   const ticket = tickets.find(t => t.id === id);
 
-  const res = await fetch(`http://localhost:5000/tickets/${id}`, {
+  const res = await fetch(`https://project-management-app-backend-awuc.onrender.com/tickets/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -135,7 +135,7 @@ const saveEdit = async (id) => {
     const input = commentInputs[ticketId];
     if (!input?.text || !input?.author) return;
 
-    const res = await fetch("http://localhost:5000/comments", {
+    const res = await fetch("https://project-management-app-backend-awuc.onrender.com/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -160,7 +160,7 @@ const saveEdit = async (id) => {
 
   // ================= DELETE COMMENT =================
   const deleteComment = async (commentId, ticketId) => {
-    await fetch(`http://localhost:5000/comments/${commentId}`, {
+    await fetch(`https://project-management-app-backend-awuc.onrender.com/comments/${commentId}`, {
       method: "DELETE"
     });
 

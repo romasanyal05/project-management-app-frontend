@@ -4,7 +4,7 @@ export default function Projects() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const fetchProjects = async () => {
-  const res = await fetch("http://localhost:5000/projects");
+  const res = await fetch("https://project-management-app-backend-awuc.onrender.com/projects");
   const data = await res.json();
   setProjects(data);
 };
@@ -24,7 +24,7 @@ const loadProjects = fetchProjects;
   // FETCH PROJECTS
   // ======================
   useEffect(() => {
-    fetch("http://localhost:5000/projects")
+    fetch("https://project-management-app-backend-awuc.onrender.com/projects")
       .then(res => res.json())
       .then(data => setProjects(data));
   }, []);
@@ -42,7 +42,7 @@ const loadProjects = fetchProjects;
 
     if (editId) {
       // UPDATE
-      const res = await fetch(`http://localhost:5000/projects/${editId}`, {
+      const res = await fetch(`https://project-management-app-backend-awuc.onrender.com/projects/${editId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, description })
@@ -57,7 +57,7 @@ const loadProjects = fetchProjects;
       setEditId(null);
     } else {
       // CREATE
-      const res = await fetch("http://localhost:5000/projects", {
+      const res = await fetch("https://project-management-app-backend-awuc.onrender.com/projects", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, description })
@@ -75,7 +75,7 @@ const loadProjects = fetchProjects;
   // DELETE PROJECT
   // ======================
   const deleteProject = async (id) => {
-    await fetch(`http://localhost:5000/projects/${id}`, {
+    await fetch(`https://project-management-app-backend-awuc.onrender.com/projects/${id}`, {
       method: "DELETE"
     });
 
@@ -95,7 +95,7 @@ const loadProjects = fetchProjects;
     }
 
     const res = await fetch(
-      `http://localhost:5000/projects/${projectId}/add-member`,
+      `https://project-management-app-backend-awuc.onrender.com/projects/${projectId}/add-member`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -118,7 +118,7 @@ const loadProjects = fetchProjects;
 
 const updateRole = async (projectId, email, role) => {
   const res = await fetch(
-    `http://localhost:5000/projects/${projectId}/update-role`,
+    `https://project-management-app-backend-awuc.onrender.com/projects/${projectId}/update-role`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -134,7 +134,7 @@ const updateRole = async (projectId, email, role) => {
 };
 
   const removeMember = async (projectId, email) => {
-  await fetch(`http://localhost:5000/projects/${projectId}/remove-member`, {
+  await fetch(`https://project-management-app-backend-awuc.onrender.com/projects/${projectId}/remove-member`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email })

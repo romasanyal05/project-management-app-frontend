@@ -34,7 +34,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-  fetch("http://localhost:5000/dashboard-counts")
+  fetch(https://project-management-app-backend-awuc.onrender.com/"dashboard-counts")
     .then(res => res.json())
     .then(data => setCounts(data));
 }, []);

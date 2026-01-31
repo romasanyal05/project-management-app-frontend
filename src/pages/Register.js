@@ -14,7 +14,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/users", {   
+    const res = await fetch("https://project-management-app-backend-awuc.onrender.com/users", {   
       method: "POST",
       headers: {
         "Content-Type": "application/json",
