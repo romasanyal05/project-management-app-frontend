@@ -26,7 +26,8 @@ export default function Login() {
         body: JSON.stringify(form),
       });
 
-      const data = await res.json();
+      const text = await res.text();
+const data = text ? JSON.parse(text) : {};
 
       if (data.ok) {
         setMsg("✅ Login Successful!");
