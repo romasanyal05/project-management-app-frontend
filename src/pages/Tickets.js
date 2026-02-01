@@ -22,7 +22,7 @@ const [editAssigned, setEditAssigned] = useState("");
 
   // ================= LOAD TICKETS =================
   useEffect(() => {
-    fetch(`https://project-management-app-backend-awuc.onrender.com/tickets/project/${projectId}`)
+    fetch(`https://project-management-app-backend-awuc.onrender.com/tickets}`)
       .then(res => res.json())
       .then(data => setTickets(data));
   }, []);
