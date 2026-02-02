@@ -30,6 +30,7 @@ const [editAssigned, setEditAssigned] = useState("");
   // ================= CREATE TICKET =================
   const handleSubmit = async (e) => {
     e.preventDefault();
+console.log("Create Ticket Clicked");
 
     const res = await fetch("https://project-management-app-backend-awuc.onrender.com/tickets", {
       method: "POST",
@@ -196,6 +197,8 @@ const saveEdit = async (id) => {
 />
 <br /><br />
 
+<form onSubmit={handleSubmit}>
+
         <select value={priority} onChange={(e) => setPriority(e.target.value)}>
           <option value="high">High</option>
           <option value="medium">Medium</option>
@@ -203,7 +206,7 @@ const saveEdit = async (id) => {
         </select>
 
         <br /><br />
-        <button>Create Ticket</button>
+        <button type="submit">Create Ticket</button>
       </form>
 
       <hr />
